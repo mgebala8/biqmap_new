@@ -1,0 +1,97 @@
+doctype html
+html(lang='pl')
+  head
+    title BIQmap
+    script(src='js/library.js')
+
+    script.
+      //var basic_url = 'http://php.local/biqmap/public';
+      //var csrf_token = 'EsjWQdIvOn1iz3jfnZN8XTPCoUQ9GbcmjMuVdPgN';
+    script(src='js/map.js')
+    link(rel='stylesheet', href='css/map.css')
+    // colorpicker start
+    link(rel='stylesheet', media='screen', type='text/css', href='colorpicker/css/colorpicker.css')
+    script(type='text/javascript', src='colorpicker/js/colorpicker.js')
+    // colorpicker stop
+    link(rel='stylesheet', href='css/admin.css')
+    head
+  body
+    section#toolbar_top
+      span.logo biqmap 
+
+      button.save zapisz
+
+      button#duplicate duplikuj
+
+      button.delete usuń
+
+      select.select_maps
+        option(id='new_map') nowa mapa
+
+      span.menu_right
+        span.login= login
+        a(href='/maps').active mapa
+        a(href='/projects') projekt
+        a(href='/logout') wyloguj się
+        
+    
+    #menu_top
+      input.input_base_text.title_project(type='text', name='title_project', obj='canvas', placeholder='nazwa mapy')
+      button#add_image dodaj zdjęcie
+
+      select#change_category.select_base(obj='menu_top', name='category')
+        option(name='0') null
+      span="krycie: " 
+      input(type="range", id="alpha_image", value="100")
+      button#increment_canvas +
+      button#decrement_canvas -
+      button#reset_canvas 100%
+
+      #canvas_info
+        input#size(type='text', value='100%',disabled)
+        input#width(type='text', value='')
+        |  :
+        input#height(type='text', value='')
+      #buttons
+        #move_image.user_mode przesuń zdjęcie [I]
+        #move_canvas.user_mode przesuń obszary [C]
+        #auto_draw.user_mode auto rysowanie [D]
+        #rubber.user_mode gumka [G]
+
+    canvas#thumbnail_canvas(width='700px', height='400px')
+    #canvas_box
+      #canvas_wrapper
+        canvas#main_canvas(nameclick='canvas', width='700px', height='400px')
+        #image_resize(nameclick='image_resize')
+      #right_resize(nameclick='right_resize')
+      #bottom_resize(nameclick='bottom_resize')
+    #category_box
+      h2 obszary
+      input(type='text', name='addCategory')
+      button#add_category dodaj
+      #list
+    #pointer_box
+      h2 punkty
+      label pokaż punkty tła:
+      .switch.switch-on.showAllPoint
+        div
+      label odstęp poziomy:
+      input.paddingX(type='text', value='1')
+      button.increment.paddingX +
+      button.decrement.paddingX -
+      label odstęp pionowy:
+      input.paddingY(type='text', value='1')
+      button.increment.paddingY +
+      button.decrement.paddingY -
+      label przesuń co drugi wiersz:
+      .switch.switch-off.translateModulo
+        div
+      label wielkość punktu:
+      input.sizePointer(type='text', value='10')
+      button.increment.sizePointer +
+      button.decrement.sizePointer -
+      label kształt:
+      select(name='main_kind')
+  script.
+    //crud.map_hash = '86M31cog4u';
+    //crud.get_map();

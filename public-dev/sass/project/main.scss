@@ -1,0 +1,772 @@
+body {
+  user-select: none;
+  margin:0px;
+  overflow-x: hidden;
+  font-family: arial;
+  //padding-top:50px;
+  //padding-top:40px !important;
+}
+
+#iframe{
+  display:none;
+}
+
+.publish{
+  position:relative;
+
+  textarea{
+    position:absolute;
+    width:300px;
+    height:100px;
+    top:50px;
+    left:-110px;
+    padding:5px;
+    z-index: 9999;
+    outline:0px;
+    border:5px solid #6d7be8;
+    border-radius:10px;
+    display:none;
+  }
+
+}
+
+#legends{
+
+  display:none;
+  color:#000;
+  overflow-y: hidden;
+  overflow-x: auto;
+  width:300px;
+  height:300px;
+
+  th{
+    font-weight: normal;
+    text-align: center;
+    outline: 0px;
+    padding: 2px;
+    color: #000;
+    background:#fff;
+    font-size:12px;
+    min-width: 48px;
+  }
+
+  td{
+    white-space: nowrap;
+    color: #000;
+    background:#fff;
+    outline: 0px;
+    padding: 2px 5px;
+    font-size:12px;
+  }
+
+  .from{
+    width:50px;
+  }
+
+  .to{
+    width:50px;
+  }
+    
+  td.color{
+    border:1px solid rgba(0,0,0,0);
+    display: block;
+    //float:left;
+    //clear:left;
+    width:40px;
+    height:20px;
+    //margin-right:10px;
+  }
+}
+
+//style dotyczące panelu warstw
+#layers{
+
+  width:100%;
+  background-color:#263860;
+  padding:10px 0px;
+  
+  label{
+    color:#fff;
+    margin-left:10px;
+  }
+  
+  .label_layer{
+    border:0px;
+    padding:5px;
+    outline:0px;
+  }
+
+  div.info {
+    display:inline-block;
+    margin-left:50px;
+    color:#fff;
+    
+    input{
+      width:50px;
+      text-align: center;
+      border:0px;
+      padding:5px;
+    }
+
+  }
+
+  .chapter{
+    height:40px;
+    //border:1px solid red;
+
+    span{ 
+      color:#fff;
+      padding:5px 15px;
+      background-color:#263860;
+      border:2px solid #6d7be8;
+      display: inline-block;
+      margin:5px;
+      cursor:pointer;
+      line-height: 20px;
+      border-radius:15px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      
+      user-select: none;
+      outline:0px;
+      height:20px;
+    }
+
+    input.label_layer{
+      width:400px;
+      margin:5px;
+      margin-bottom:5px;
+      padding:5px;
+      outline:0px;
+      border:0px;
+    }
+      
+    .active{
+      background-color:#6d7be8;
+      color:#fff;
+    } 
+
+    button{
+      background-color:#263860;
+      border:2px solid #6d7be8;
+      display:inline-block;
+      color:#fff;
+      padding:5px 15px;
+      height:30px;
+      line-height: 10px;
+      border-radius:15px;
+      margin:5px;
+      cursor:pointer;
+      font-size:14px;
+      outline:0px;
+    }
+  }
+}
+
+#area{
+  display: none;
+  
+  span{
+    color:#fff;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+
+  input{
+    width:150px;
+    margin:5px;
+  }
+
+}
+
+//panel do wyświetlania i dodawania tekst dla dymka
+#cloud{
+  display:none;
+  width: 370px;
+
+  textarea{
+    margin: 10px auto;
+    display: block;
+    outline: 0px;
+  }
+
+  .cloud_text{
+    width: 240px;
+    height: 140px;
+  }
+
+  .source{
+    width: 240px;
+    height: 80px;
+  }
+}
+
+#canvas_cloud{
+  display:none;
+  position: absolute;
+  width: auto;
+  height: auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 99999;
+  padding: 5px 10px;
+  border: 1px solid lightgrey;
+
+  p{
+    margin: 0px;
+    font-size: 12px;
+    padding: 0px;
+  }
+  
+/*&:after{
+    position:absolute;
+    bottom:-10px;
+    left:0px;
+    content:'';
+    width:10px;
+    height:0px;
+    width:0px;
+    height:0px;
+    border-left: 15px solid #fff;
+    border-right: 0px solid #fff;
+    border-bottom: 20px solid transparent;
+    border-top: 0px solid transparent;
+  }*/
+}
+
+//style odpowiedzialne za box excela
+#excel_box{
+  
+  width:500px;
+  left:-520px;
+  top:auto;
+  bottom:50px;
+  padding-top:5px;
+  height:395px;
+  
+  span{
+    color:#fff;
+  }
+
+  h2{
+    top: 185px;
+    left: 334px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+
+  & > input{
+    display:none;
+  }
+
+  button{
+    background-color:#263860;
+    border:2px solid #6d7be8;
+    display:inline-block;
+    color:#fff;
+    padding:5px 20px;
+    height:36px;
+    line-height: 20px;
+    border-radius:15px;
+    margin:5px;
+    cursor:pointer;
+    font-size:14px;
+    outline:0px; 
+    width: 160px;
+    float: right;
+  }
+
+
+#excel_wrapper{
+
+  clear: both;
+  width: 480px;
+  height: 290px;
+  padding: 5px;
+  border: 1px solid #fff;
+  overflow: scroll;
+  margin-top: 15px;
+
+  .table{
+    width:auto;
+    user-select: auto;
+
+    .tr{
+      clear:both;
+      height:20px;
+      user-select: auto;
+      
+      .td{
+        width: 80px;
+        height:20px;
+        line-height: 20px;
+        font-size:14px;
+        background:#fff;
+        margin:1px;
+        margin-left:0px;
+        position:relative;
+        outline:0px;
+        user-select: auto;
+      }
+
+      .td:first-child{
+        width:30px;
+        text-align:center;
+        font-weight: bold;
+        margin-right:3px;
+        background-color:lightgrey;
+      }
+
+      .td.category{
+        background-color:red;
+      }
+
+      .td.value{
+        background-color:green;
+      }
+
+    }
+
+    .tr:first-child{
+      //width:20px;
+      text-align:center;
+      font-weight: bold;
+       margin-bottom:3px;
+      .td{
+        background-color:lightgrey;
+      }
+
+    }
+  }
+}
+}
+
+//style dotyczące panelu kolorów
+#palets{
+  color:#fff;
+  #select{
+    span{
+      display: inline-block;
+      margin: 2px;
+      width:20px;
+      height:20px;
+      border:2px solid rgba(0,0,0,0);
+    }
+    .active{
+      border: 2px solid red;
+    }
+    margin-bottom:10px;
+    margin-top:10px;
+  }
+
+  #all{
+
+    display: block;
+    width: 370px;
+    height: 335px;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    & > span{
+      display:block;
+      padding: 2px;
+      height: 15px;
+      overflow:hidden;
+      line-height:20px;
+      cursor:pointer;
+      border: 2px solid rgba(0,0,0,0);
+      
+      span{
+        display: block;
+        float:left;
+        margin: 0px 2px;
+        width:15px;
+        height:15px;
+      }
+    }
+
+    .active{
+      border: 2px solid red;
+    }
+  }
+}
+
+
+#canvas_box{
+
+  position:relative;
+  background-color:#fff;
+  margin-left: 10px;
+  margin-top:10px;
+
+  #bottom_resize{
+    position:absolute;
+    width:100%;
+    bottom:-5px;
+    height:5px;
+    background-color: #6d7be8;
+    cursor:n-resize;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  #right_resize{
+    position:absolute;
+    height:100%;
+    right:-5px;
+    top:0px;
+    width:5px;
+    background-color: #6d7be8;
+    cursor:w-resize;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  #canvas_wrapper{
+    position:relative;
+    overflow:hidden;
+
+    #image_resize{
+      position:absolute;
+      width:5px;
+      background-color: #f00;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      cursor:w-resize;
+      display:none;
+    }
+  }
+}
+
+.switch{
+  width:40px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #aaa;
+  cursor: pointer;
+  overflow:hidden;
+
+  div{
+    width:20px;
+    height:20px;
+    background-color: #fff;
+    border-radius: 10px;
+    float:left;
+  }
+}
+
+.switch-on{
+  background-color: #34a81c;
+  div{
+    float:right;
+  }
+}
+
+.switch-off{
+  background-color: #aaa;
+  div{
+    float:left;
+  }
+}
+
+
+//główny styl dotyczaćy ponterów
+.box{
+
+  width:250px;
+  height:360px;
+  padding:10px;
+  padding-top:0px;
+  margin:0px;
+  position:absolute;
+  right:0px;
+  top:110px;
+  background: #263860;
+
+  & > div{
+   // display:none;
+    position:absolute;
+  }
+
+  & > ul{
+    width:100%;
+    color:#fff;
+    margin:0px;
+    padding:0px;
+    margin-bottom:10px;
+    display:block;
+    overflow: hidden;
+    background-color:#19284b;
+
+    li{ 
+      margin:0px;
+      padding:0px;
+      display:block;
+      float:left;
+      height:40px;
+      line-height:40px;
+      width:120px;
+      text-align: center;
+      cursor:pointer;  
+    }
+
+    li.active{
+      text-decoration: underline;
+    }
+
+  }
+  
+  label{
+    color:#fff;
+    font-style: italic;
+    font-family: arial;
+    margin-top:5px;
+  }
+
+  input{
+    width:50px;
+    padding:5px;
+    margin:0px 5px;
+  }
+
+  button{
+    width:30px;
+    height:30px;
+    margin:0px 5px;
+  }
+
+  label{
+    display:block;
+    clear:both;
+  }
+
+  h2{
+    position: absolute;
+    top: 165px;
+    left: -205px;
+    margin: 0px;
+    transform: rotate(-90deg);
+    background-color: #6d7be8;
+    color: #fff;
+    padding: 5px;
+    width: 401px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-family: arial;
+    cursor: pointer;
+    font-weight:normal;
+  }
+}
+
+#palets_box{
+
+  right:-390px;
+  top:600px;
+  width: 370px;
+  height:450px;
+
+  h2{
+    width: 450px;
+    top: 210px;
+    left: -250px;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+  }
+}
+
+#pointer_box{
+  right:-320px;
+  top:110px;
+  height:470px;
+  width:300px;
+
+  h2{
+    width: 470px;
+    top: 220px;
+    left: -260px;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+  }
+
+  input.project_name{
+    width:150px;
+    margin-bottom:10px;
+  }
+
+  .color_border{
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    border-radius: 10px;
+    background-color:#000;
+    display:inline-block;
+    cursor:pointer;
+  }
+
+
+
+}
+
+
+#category_box{
+  width:320px;
+  height:320px;
+  padding:10px;
+  position:absolute;
+  right:0px;
+  //left:-315px;
+  top:460px;
+  background: gray;
+  margin:0px;
+
+  h2{
+    position:absolute;
+    top:150px;
+    left:-190px;
+    margin:0px;
+    transform: rotate(-90deg);
+    background-color:#f00;
+    color:#fff;
+    padding:5px;
+    width:330px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    font-family: arial;
+    cursor:pointer;
+  }
+
+  input,button{
+    margin:5px;
+    padding:5px;
+  }
+
+  #list{
+    clear:both;
+    width:320px;
+    height:280px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .colorpicker_box{
+      width:30px;
+      height:30px;
+      background-color: #ff0000;
+    }
+
+    span{
+      color:#fff;
+    }
+  }
+}
+
+#menu_top{
+  border-bottom:2px solid red;
+  margin:0px;
+  margin-bottom:10px;
+  margin-top:40px;
+  width:100%;
+  display:inline-block;
+  padding:5px 20px;
+
+  *{
+    margin: 0px 5px;
+  }
+
+  h2{
+    margin:0px;
+    display:inline-block;
+  }
+
+  input.title_project{
+    margin: 0px;
+    width: 130px;
+    height: 25px;
+    padding-left: 5px;
+  }
+
+  button{
+    padding: 5px 10px;
+  }
+
+  select#change_category{
+    padding: 5px 10px;
+    width:100px;
+  }
+
+  select#alpha_image{
+    padding: 5px 0px;
+  }
+
+  .user_mode{
+    padding:5px 10px;
+    background-color:#aaa;
+    display: inline-block;
+    color:#fff;
+    border-radius:5px;
+  }
+
+  .info{
+    display: inline-block;
+    input{
+      width:50px;
+      text-align: center;
+      display: inline-block;
+      border:1px solid red;
+      padding:5px;
+    }
+  }
+}
+
+#save_map{
+  position: absolute;
+  bottom: 0px;
+  left: 300px;
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  background-color: red;
+  border: 0px;
+  color: #fff;
+  cursor: pointer;
+  font-weight:bold;
+
+  &:hover{
+    background-color: #a2e71c;
+  }
+}
+
+.crud_panel{
+  position:absolute;
+  top:0px;
+  right:400px;
+
+  button{
+    color:#fff;
+    font-weight: bold;
+    font-style: normal;
+    font-family: arial;
+    font-size:12px;
+    text-decoration: none;
+
+    border:1px solid red;
+    background-color:rgba(255,0,0,1);
+    padding:0px 10px;
+    margin:0px;
+
+    margin-left: 10px;
+    border-radius: 10px;
+    height:20px;
+    line-height: 20px;
+
+    display:inline-block;
+
+    &:hover{
+        background-color:rgba(255,0,0,0.8);
+    }
+  }
+}
